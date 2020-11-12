@@ -1,0 +1,35 @@
+- name: Setup {{ ide | title }} plugins
+  - name: Set OS distribution dependent variables
+    include_vars: "vars/{{ ansible_os_family }}.yml"
+
+  - name: Check if {{ ide | title }} config directory exists
+    stat:
+      path: "{{ plugins.ides.{{ide}}.dest }}"
+    register: ide_config
+    changed_when: false
+  - name: Create {{ ide| title }} config directory
+    file:
+      path: "{{ plugins.ides.{{ide}}.dest }}"
+      state: directory
+    when: not ide_config.stat.exists
+
+  - name: Installing {{ plugin.name }} plugin into {{ ide | title }}
+    block:
+      - name: Produces the api url for get the latest version of {{ plugin.name }}
+        set_fact:
+          latest_plugin_url: {{ plugins.url.api_last_version | regex_replace('_P_L_U_G_I_N__I_D_', '{{ plugin.id }}') }}
+      - name: Get the file name of {{ plugin.name }} to download
+        shell: curl -s {{ latest_plugin_url }} | jq -r '.[0].file'
+        register: file_name
+      - name: Download and extract {{ plugin.name }}
+        unarchive:
+          src: {{ plugins.url.base }}/{{ file_name.stdout }}
+          dest: "{{ plugins.ides.{{ide}}.dest }}"
+          remote_src: yes
+    loop: "{{ plugins.ides.{{ide}}.download }}"
+    loop_control:
+      loop_var: plugin
+
+  loop: "{{ plugins.ides | list }}"
+  loop_control:
+    loop_var: ide

@@ -1,0 +1,30 @@
+plugins:
+  base_url: https://plugins.jetbrains.com/files
+  url:
+    base: https://plugins.jetbrains.com/files
+    api_last_version: https://plugins.jetbrains.com/api/plugins/_P_L_U_G_I_N__I_D_/updates
+  ides:
+    intelliJ:
+      version: 2020.2
+      dest: "{{plugins.dest_prefix}}/JetBrains/IntelliJIdea{{ plugins.intelliJIdea.version }}/""
+      download:
+        - id: 8090
+          name: Cursive
+        - id: 7638
+          name: Codota
+        - id: 10080
+          name: Rainbow Brackets
+        - id: 13090
+          name: Gnome Keymap
+        - id: 7896
+          name: Markdown Enhanced
+        - id: 164
+          name: Idea Vim
+        - id: 6954
+          name: Kotlin
+        - id: 1347
+          name: Scala
+        - id: 6317
+          name: Lombok
+        - id: 11938
+          name: One Dark Theme
