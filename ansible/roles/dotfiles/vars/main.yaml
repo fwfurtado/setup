@@ -1,0 +1,4 @@
+
+dotfiles:
+  path: {{ home_directory/.dotfiles/ }}
+  run_command_file: {{ home_directory/.zshrc }}
