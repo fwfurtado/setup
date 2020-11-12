@@ -1,0 +1,8 @@
+
+projects:
+  path:  {{ home_directory/projects }}
+  sub_dis:
+    - {{ home_directory/projects/courses }}
+    - {{ home_directory/projects/pocs }}
+    - {{ home_directory/projects/python }}
+    - {{ home_directory/projects/jvm }}
