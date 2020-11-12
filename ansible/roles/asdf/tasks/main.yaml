@@ -1,0 +1,19 @@
+- name: Setup Asdf V}M
+
+  - name: Add plugins {{ item.name }}
+    shell:
+      cmd: asdf plugin add {{ item.name }} {{ item.url }}
+    loop: {{ asdf.plugins }}
+
+  - name: Post Install Plugins
+    shell:
+      cmd: bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
+
+  - name: Install versions
+    shell:
+      cmd: asdf install
+
+  - name: Set global version
+    shell:
+      cmd: asdf list {{ item }} | sort -r | grep -m 1 '' | xargs asdf global {{ item }}
+    loop: {{ asdf.plugins | map(attribute="name") }}
