@@ -1,0 +1,63 @@
+- name: "Check if Pacman is already installed"
+  stat:
+    path: /usr/bin/pacman
+  register: pacman_installed
+  changed_when: false
+
+- name: "Setup Pacman"
+  - name: Add {{ item }} configuration Options to pacman.conf
+    lineinfile:
+      path: /etc/pacman.conf
+      insertafter: '^\[options\]'
+      line: "{{ item }}"
+    loop: "{{ pacman.config_options }}"
+
+  - name: Add repository {{ item.name }}
+    blockinfile:
+      path: /etc/pacman.conf
+      mark: "# Added by ansible"
+      block: |
+        [{{ item.name }}]
+        Include = {{ item.mirrorlist }}
+    loop: {{ pacman.repositories }}
+
+  - name: Sync Pacman Cache and Upgrade packages
+    pacman:
+      update_cache: yes
+      upgrade: yes
+
+  - name: Install packages {{ item }}
+    pacman:
+      name: {{ item }}
+      update_cache: no
+      state: latest
+    loop: "{{ pacman.packages }}"
+when: pacman_installed.stat.exists
+
+- name: "Check if Yay is already installed"
+  stat:
+    path: /usr/bin/yay
+  register: yay_installed
+  changed_when: false
+
+- name: Installing Yay
+  - name: Download repository
+    git: https://aur.archlinux.org/yay.git
+    dest: /tmp/yay
+
+  - name: Make package and install Yay
+    shell:
+      chdir: /tmp/yay
+      cmd: makepkg -si
+when: not yay_installed.stat.exists
+
+- name: Setup Yay
+  - name: Remove Diff Menu
+    shell: yay --editmenu --nodiffmenu --save
+
+  - name: Sync repository
+    shel: yay -Sy
+
+  - name: Install Packages
+    shell: yay -S {{ item }} --noconfirm
+  loop: {{ yay.packages }}

@@ -1,0 +1,42 @@
+- name: Check if Homebrew is already installed
+  stat:
+    path: /usr/local/bin/brew
+  register: brew_installed
+  changed_when: false
+
+- name: Setup Homebrew
+  block:
+
+    - name: Installing homebrew
+      environment:
+        CI: 1
+      shell: bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+      args:
+        executable: /bin/bash
+
+  when: not brew_installed.stat.exists
+
+- name: Update Homebrew
+  homebrew:
+    update_homebrew: true
+
+- name: Installing homebrew taps packages
+  homebrew_tap:
+    tap: "{{ item }}"
+    state: present
+  loop: "{{ homebrew.taps }}"
+  when: homebrew_taps is defined
+
+- name: Installing homebrew cask packages
+  homebrew_cask:
+    sudo_password: "{{ ansible_become_password }}"
+    name: "{{ homebrew.cask }}"
+    state: "present"
+    install_options: force
+  when: cask_packages is defined
+
+- name: Installing homebrew packages
+  homebrew:
+    name: "{{ homebrew.packages }}"
+    state: "present"
+  when: homebrew_packages is defined

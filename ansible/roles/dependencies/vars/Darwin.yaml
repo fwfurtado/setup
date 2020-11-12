@@ -1,0 +1,35 @@
+homebrew:
+  taps:
+    - homebrew/cask-fonts
+  packages:
+    - git
+    - neofetch
+    - zsh
+    - neovim
+    - emacs
+    - asdf
+    - httpie
+    - jq
+    - yq
+    - icdiff
+    - subversion
+    - gcc
+    - xz
+    - openssl
+    - readline
+    - sqlite3
+    - zlib
+    - coreutils
+    - gpg
+  cask:
+    - brave-browser
+    - slack
+    - telegram-desktop
+    - android-studio
+    - pycharm
+    - datagrip
+    - intellij-idea
+    - displaylink
+    - zoom
+    - font-jetbrains-mono
+    - font-hack-nerd-font

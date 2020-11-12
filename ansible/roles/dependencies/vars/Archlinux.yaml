@@ -1,0 +1,50 @@
+yay:
+  packages:
+    - asdf-vm
+    - brave-bin
+    - displaylink
+    - icdiff
+    - slack-desktop
+    - zoom
+    - gnome-terminal-transparency
+    - mimic
+    - datagrip
+    - pycharm-professional
+    - intellij-idea-ultimate-edition
+    - android-studio
+
+pacman:
+  config_options:
+    - ILoveCandy
+    - Color
+    - VerbosePkgLists
+    - TotalDownload
+    - CheckSpace
+  repositories:
+    - name: multilib
+      mirror_list: /etc/pacman.d/mirrorlist
+  packages:
+    - base-devel
+    - zsh
+    - neovim
+    - emacs
+    - arc-gtk-theme
+    - arc-icon-theme
+    - archlinux-wallpaper
+    - yubioauth-desktop
+    - httpie
+    - jq
+    - yq
+    - xsel
+    - ttf-jetbrains-mono
+    - telegram-desktop
+    - subversion
+    - podman
+    - gcc-fortran
+    - git
+    - chrome-gnome-shell
+    - buildah
+    - neofetch
+    - openssl
+    - zlib
+    - gpgme
