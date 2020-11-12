@@ -1,0 +1,12 @@
+- name: Setup a new machine
+  host: all
+  connection: local
+  var_files: 
+    - vars/{{ ansible_os_family }}.yaml
+  roles:
+    - role: dependencies
+    - role: project_dir 
+    - role: ssh_config
+    - role: dotfiles
+    - role: asdf
+    - role: jet_brains_IDEs_plugins
