@@ -1,12 +1,11 @@
 plugins:
-  base_url: https://plugins.jetbrains.com/files
   url:
     base: https://plugins.jetbrains.com/files
     api_last_version: https://plugins.jetbrains.com/api/plugins/_P_L_U_G_I_N__I_D_/updates
   ides:
     intelliJ:
       version: 2020.2
-      dest: "{{plugins.dest_prefix}}/JetBrains/IntelliJIdea{{ plugins.intelliJIdea.version }}/""
+      dest: "{{plugins.dest_prefix}}/JetBrains/IntelliJIdea{{ plugins.intelliJIdea.version }}/"
       download:
         - id: 8090
           name: Cursive
@@ -28,3 +27,43 @@ plugins:
           name: Lombok
         - id: 11938
           name: One Dark Theme
+        - id: 7414
+          name: Relative Line Numbers
+    pycharm:
+      version: 2020.2
+      dest: "{{plugins.dest_prefix}}/JetBrains/PyCharm{{ plugins.pycharm.version }}/"
+      download:
+        - id: 14307
+          name: Poetry
+        - id: 10080
+          name: Rainbow Brackets
+        - id: 13090
+          name: Gnome Keymap
+        - id: 7896
+          name: Markdown Enhanced
+        - id: 164
+          name: Idea Vim
+        - id: 6632
+          name: R
+        - id: 8195
+          name: Toml
+        - id: 12017
+          name: Prettify Python
+        - id: 11938
+          name: One Dark Theme
+        - id: 11945
+          name: Python Smart Execute
+        - id: 15148
+          name: Kite AI AutoComplete
+        - id: 7414
+          name: Relative Line Numbers
+    datagrip:
+      version: 2020.2
+      dest: "{{plugins.dest_prefix}}/JetBrains/DataGrip{{ plugins.datagrip.version }}/"
+      download:
+        - id: 13090
+          name: Gnome Keymap
+        - id: 164
+          name: Idea Vim
+        - id: 7414
+          name: Relative Line Numbers
