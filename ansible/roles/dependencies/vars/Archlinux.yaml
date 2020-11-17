@@ -42,9 +42,9 @@ pacman:
     - podman
     - gcc-fortran
     - git
-    - chrome-gnome-shell
     - buildah
     - neofetch
     - openssl
     - zlib
     - gpgme
+    - arandr
