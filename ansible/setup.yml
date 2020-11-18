@@ -1,3 +1,4 @@
+--- 
 - name: Setup a new machine
   host: all
   connection: local
