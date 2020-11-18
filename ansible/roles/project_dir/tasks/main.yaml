@@ -9,14 +9,15 @@
   - name: Create Project directory
     file:
       path: "{{ projects.path }}"
-      owner: "{{ become_user }}"
+      owner: "{{ current_user }}"
       group: "{{ admin_group }}"
       state: directory
     when: not project_dir.exists
   - name: Create Structure
     file:
      path: "{{ item }}"
-     owner: "{{ become_user }}"
+     owner: "{{ current_user }}"
      group: "{{ admin_group }}"
      state: directory
+    with_filetree: "{{ projects.path }}"
     loop: "{{ projects.sub_dirs }}"
