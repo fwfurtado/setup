@@ -1,2 +1,1 @@
-plugins:
-  dir_prefix: "{{ home_directory }}/Library/Application Support"
+plugin_prefix: "{{ home_directory }}/Library/Application Support"

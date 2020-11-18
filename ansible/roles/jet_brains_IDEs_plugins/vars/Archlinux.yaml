@@ -1,2 +1,1 @@
-plugins:
-  dir_prefix: "{{ home_directory }}/.local/share/"
+plugin_prefix: "{{ home_directory }}/.local/share/"
