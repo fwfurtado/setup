@@ -25,11 +25,13 @@
     with_items: "{{ pacman.repositories }}"
 
   - name: Sync Pacman Cache and Upgrade packages
+    become: true
     pacman:
       update_cache: yes
       upgrade: yes
 
   - name: "Install packages {{ item }}"
+    become: true
     pacman:
       name: "{{ item }}"
       update_cache: no
