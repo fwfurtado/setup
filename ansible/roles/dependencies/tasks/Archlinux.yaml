@@ -5,7 +5,8 @@
   changed_when: false
 
 - name: "Setup Pacman"
-  - name: Add {{ item }} configuration Options to pacman.conf
+  block:
+  - name: "Add {{ item }} configuration Options to pacman.conf"
     lineinfile:
       path: /etc/pacman.conf
       insertafter: '^\[options\]'
