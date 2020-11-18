@@ -35,7 +35,7 @@ pacman:
     - arc-gtk-theme
     - arc-icon-theme
     - archlinux-wallpaper
-    - yubioauth-desktop
+    - yubioath-desktop
     - httpie
     - jq
     - yq
