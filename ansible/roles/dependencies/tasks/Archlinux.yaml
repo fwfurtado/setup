@@ -60,7 +60,7 @@
     shell: yay --editmenu --nodiffmenu --save
 
   - name: Sync repository
-    shel: yay -Sy
+    shell: yay -Sy
 
   - name: Install Packages
     shell: "yay -S {{ item }} --noconfirm"
