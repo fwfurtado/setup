@@ -14,10 +14,7 @@
       state: directory
     when: not project_dir.exists
   - name: Create Structure
-    file:
-     path: "{{ projects.path }}/{{ item }}"
-     owner: "{{ current_user }}"
-     group: "{{ admin_group }}"
-     state: directory
+    shell:
+     cmd: "mkdir -p {{ projects.path }}/{{ item }}"
     with_filetree: "{{ projects.path }}"
     loop: "{{ projects.sub_dirs }}"
