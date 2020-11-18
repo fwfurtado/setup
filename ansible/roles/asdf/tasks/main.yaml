@@ -18,17 +18,5 @@
       cmd: |
         asdf install {{ item }}
         asdf list {{ item }} | sort -r | grep -m 1 "" | xargs asdf global {{ item }}
-    async: 1000
-    poll: 0
-    register: asdf_installer
     loop: "{{ asdf.plugins | map(attribute='name') }}"
 
-  - name: Check status of installation version 
-    async_status:
-      jid: "{{ item.ansible_job_id }}"
-      mode: status 
-    retries: 100
-    delay: 1
-    loop: "{{ asdf_installer.results }}"
-    register: asdf_installation_checker
-    until: asdf_installation_checker.finished
