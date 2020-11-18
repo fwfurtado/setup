@@ -13,12 +13,9 @@
     shell:
       cmd: bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
 
-  - name: Install versions
+  - name: Install and set global versions
     shell:
-      cmd: 'asdf install {{ item.name }}'
-    loop: "{{ asdf.plugins }}"
-
-  - name: Set global version
-    shell:
-      cmd: "asdf list {{ item }} | sort -r | grep -m 1 '' | xargs asdf global {{ item }}"
+      cmd: |
+        asdf install "{{ item }}"
+        asdf list "{{ item }}" | sort -r | grep -m 1 "" | xargs asfd global "{{ item }}"
     loop: "{{ asdf.plugins | map(attribute='name') }}"
