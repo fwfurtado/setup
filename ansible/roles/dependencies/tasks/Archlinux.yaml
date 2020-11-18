@@ -45,7 +45,7 @@
   block:
   - name: Download repository
     git: https://aur.archlinux.org/yay.git
-    dest: /tmp/yay
+      dest: /tmp/yay
 
   - name: Make package and install Yay
     shell:
