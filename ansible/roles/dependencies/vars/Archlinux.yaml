@@ -10,7 +10,6 @@ yay:
     - icdiff
     - slack-desktop
     - zoom
-    - xfce4-transparency
     - mimic
     - datagrip
     - pycharm-professional
@@ -43,3 +42,4 @@ pacman:
     - zlib
     - gpgme
     - arandr
+    - xfce4-terminal
