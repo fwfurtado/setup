@@ -15,7 +15,7 @@
     when: not project_dir.exists
   - name: Create Structure
     file:
-     path: "{{ item }}"
+     path: "{{ projects.path }}/{{ item }}"
      owner: "{{ current_user }}"
      group: "{{ admin_group }}"
      state: directory
