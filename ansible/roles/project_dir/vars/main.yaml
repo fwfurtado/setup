@@ -1,6 +1,6 @@
 
 projects:
-  path:  "{{ home_directory/projects }}"
+  path:  "{{ home_directory }}/projects"
   sub_dirs:
     - courses
     - pocs
