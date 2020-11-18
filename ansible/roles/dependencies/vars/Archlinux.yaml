@@ -5,6 +5,7 @@ user:
 yay:
   packages:
     - asdf-vm
+    - scm_breeze
     - brave-bin
     - displaylink
     - icdiff
@@ -43,3 +44,4 @@ pacman:
     - gpgme
     - arandr
     - xfce4-terminal
+    - lsd
