@@ -33,7 +33,7 @@
       update_cache: no
       state: latest
     loop: "{{ pacman.packages }}"
-when: pacman_installed.stat.exists
+  when: pacman_installed.stat.exists
 
 - name: "Check if Yay is already installed"
   stat:
@@ -42,6 +42,7 @@ when: pacman_installed.stat.exists
   changed_when: false
 
 - name: Installing Yay
+  block:
   - name: Download repository
     git: https://aur.archlinux.org/yay.git
     dest: /tmp/yay
@@ -50,9 +51,10 @@ when: pacman_installed.stat.exists
     shell:
       chdir: /tmp/yay
       cmd: makepkg -si
-when: not yay_installed.stat.exists
+  when: not yay_installed.stat.exists
 
 - name: Setup Yay
+  block:
   - name: Remove Diff Menu
     shell: yay --editmenu --nodiffmenu --save
 
@@ -61,4 +63,4 @@ when: not yay_installed.stat.exists
 
   - name: Install Packages
     shell: yay -S {{ item }} --noconfirm
-  loop: {{ yay.packages }}
+    loop: {{ yay.packages }}
