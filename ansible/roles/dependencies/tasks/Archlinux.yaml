@@ -6,7 +6,7 @@
 
 - name: "Setup Pacman"
   block:
-  - name: "Add {{ item }} configuration Options to pacman.conf"
+  - name: "Add configuration Options to pacman.conf"
     become: true
     lineinfile:
       path: /etc/pacman.conf
