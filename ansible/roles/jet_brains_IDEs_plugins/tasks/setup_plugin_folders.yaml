@@ -1,0 +1,21 @@
+--- 
+- name: Set OS distribution dependent variables
+  include_vars: "vars/{{ ansible_os_family }}.yml"
+
+- name: "Check if {{ ide | title }} config directory exists"
+  stat:
+    path: "{{ plugins.ides.{{ide}}.dest }}"
+  register: ide_config
+  changed_when: false
+
+- name: "Create {{ ide| title }} config directory"
+  file:
+    path: "{{ plugins.ides.{{ide}}.dest }}"
+    state: directory
+  when: not ide_config.stat.exists
+
+- name: "Installing {{ plugin.name }} plugin into {{ ide | title }}"
+  include_tasks: install_plugins.yaml 
+  loop: "{{ plugins.ides.{{ide}}.download }}"
+  loop_control:
+    loop_var: plugin
