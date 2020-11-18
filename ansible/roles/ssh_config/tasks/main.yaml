@@ -1,9 +1,9 @@
 - name: Setup SSH Keys
   - name: Generate SSH Key
     user:
-      name: {{ become_user }}
+      name: "{{ become_user }}"
       generate_ssh_key: yes
       ssh_key_bits: 2048
       ssh_key_file: .ssh/id_rsa
-      ssh_key_comment: {{ user_email }}
+      ssh_key_comment: "{{ user_email }}"
       ssh_key_type: rsa
