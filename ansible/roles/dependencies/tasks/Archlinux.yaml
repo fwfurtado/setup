@@ -13,23 +13,23 @@
       line: "{{ item }}"
     loop: "{{ pacman.config_options }}"
 
-  - name: Add repository {{ item.name }}
+  - name: "Add repository {{ item.name }}"
     blockinfile:
       path: /etc/pacman.conf
       mark: "# Added by ansible"
       block: |
-        [{{ item.name }}]
-        Include = {{ item.mirrorlist }}
-    loop: {{ pacman.repositories }}
+        "[{{ item.name }}]"
+        "Include = {{ item.mirrorlist }}"
+    loop: "{{ pacman.repositories }}"
 
   - name: Sync Pacman Cache and Upgrade packages
     pacman:
       update_cache: yes
       upgrade: yes
 
-  - name: Install packages {{ item }}
+  - name: "Install packages {{ item }}"
     pacman:
-      name: {{ item }}
+      name: "{{ item }}"
       update_cache: no
       state: latest
     loop: "{{ pacman.packages }}"
@@ -62,5 +62,5 @@
     shel: yay -Sy
 
   - name: Install Packages
-    shell: yay -S {{ item }} --noconfirm
-    loop: {{ yay.packages }}
+    shell: "yay -S {{ item }} --noconfirm"
+    loop: "{{ yay.packages }}"
