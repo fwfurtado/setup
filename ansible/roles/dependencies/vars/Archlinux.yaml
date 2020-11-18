@@ -25,9 +25,8 @@ pacman:
     - TotalDownload
     - CheckSpace
   repositories:
-    - | 
-      [multilib]
-      Include = /etc/pacman.d/mirrorlist
+    - name: multilib 
+      repo: /etc/pacman.d/mirrorlist
   packages:
     - base-devel
     - zsh

@@ -20,7 +20,8 @@
       path: /etc/pacman.conf
       mark: "# Added by ansible"
       block: |
-        {{ item }} 
+        [{{ item.name }}]
+        Include = {{ item.repo }}
     with_items: "{{ pacman.repositories }}"
 
   - name: Sync Pacman Cache and Upgrade packages
