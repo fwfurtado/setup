@@ -30,7 +30,7 @@
       update_cache: yes
       upgrade: yes
 
-  - name: "Install packages {{ item }}"
+  - name: "Install packages"
     become: true
     pacman:
       name: "{{ item }}"
