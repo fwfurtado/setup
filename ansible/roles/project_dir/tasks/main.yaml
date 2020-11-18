@@ -1,5 +1,5 @@
 - name: Setup project directory
-
+  block: 
   - name: Check If project dir exists
     stat:
       path: "{{ projects.path }}"
