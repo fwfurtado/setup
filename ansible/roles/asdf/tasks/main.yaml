@@ -1,6 +1,10 @@
 - name: Setup Asdf V}M
   block:
-  - name: "Add plugins {{ item.name }}"
+  - name: "Load ASDF"
+    shell: 
+      cmd: "souce /opt/asdf-vm/asdf.sh"
+
+  - name: "Add plugins"
     shell:
       cmd: "asdf plugin add {{ item.name }} {{ item.url }}"
     loop: "{{ asdf.plugins }}"
