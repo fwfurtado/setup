@@ -45,3 +45,5 @@ pacman:
     - arandr
     - xfce4-terminal
     - lsd
+    - openssh 
+    - unzip
