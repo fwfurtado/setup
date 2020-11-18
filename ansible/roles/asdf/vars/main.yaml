@@ -1,17 +1,17 @@
 asdf:
   plugins:
+    - name: java
+      url:  https://github.com/halcyon/asdf-java.git
+    - name: erlang
+      url:  https://github.com/asdf-vm/asdf-erlang.git
+    - name: python
+      url:  https://github.com/danhper/asdf-python.git
     - name: clojure
       url:  https://github.com/halcyon/asdf-clojure.git
     - name: elixir
       url:  https://github.com/asdf-vm/asdf-elixir.git
-    - name: erlang
-      url:  https://github.com/asdf-vm/asdf-erlang.git
-    - name: flutter
-      url:  https://github.com/oae/asdf-flutter.git
     - name: golang
       url:  https://github.com/kennyp/asdf-golang.git
-    - name: java
-      url:  https://github.com/halcyon/asdf-java.git
     - name: julia
       url:  https://github.com/rkyleg/asdf-julia.git
     - name: lein
@@ -20,8 +20,6 @@ asdf:
       url:  https://github.com/asdf-vm/asdf-nodejs.git
     - name: poetry
       url:  https://github.com/crflynn/asdf-poetry.git
-    - name: python
-      url:  https://github.com/danhper/asdf-python.git
     - name: R
       url:  https://github.com/iroddis/asdf-R.git
     - name: sbt
