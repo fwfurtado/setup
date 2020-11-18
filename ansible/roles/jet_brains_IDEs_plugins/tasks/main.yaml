@@ -1,5 +1,5 @@
 - name: "Setup IDE plugins"
   include_tasks: setup_plugin_folders.yaml 
-  loop: "{{ plugins.ides }}"
+  with_items: "{{ plugins.ides }}"
   loop_control:
     loop_var: ide

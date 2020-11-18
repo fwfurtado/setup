@@ -3,7 +3,7 @@ plugins:
     base: https://plugins.jetbrains.com/files
     api_last_version: https://plugins.jetbrains.com/api/plugins/_P_L_U_G_I_N__I_D_/updates
   ides:
-    intelliJ:
+    - name: intelliJ
       dest_suffix: "JetBrains/IntelliJIdea2020.2/"
       download:
         - id: 8090
@@ -28,7 +28,7 @@ plugins:
           name: One Dark Theme
         - id: 7414
           name: Relative Line Numbers
-    pycharm:
+    - name: pycharm
       dest_suffix: "JetBrains/PyCharm2020.2/"
       download:
         - id: 14307
@@ -55,7 +55,7 @@ plugins:
           name: Kite AI AutoComplete
         - id: 7414
           name: Relative Line Numbers
-    datagrip:
+    - name: datagrip
       dest_suffix: "JetBrains/DataGrip2020.2/"
       download:
         - id: 13090

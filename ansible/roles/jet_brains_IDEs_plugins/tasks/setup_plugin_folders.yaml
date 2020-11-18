@@ -1,6 +1,6 @@
 --- 
 - name: Set OS distribution dependent variables
-  include_vars: "vars/{{ ansible_os_family }}.yml"
+  include_vars: "vars/{{ ansible_os_family }}.yaml"
 
 - name: "Check if ide config directory exists"
   stat:
