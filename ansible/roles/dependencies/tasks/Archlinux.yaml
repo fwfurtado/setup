@@ -22,7 +22,7 @@
       block: |
         [{{ item.name }}]
         Include = {{ item.mirror_list }}
-    loop: "{{ pacman.repositories }}"
+    with_items: "{{ pacman.repositories }}"
 
   - name: Sync Pacman Cache and Upgrade packages
     pacman:
