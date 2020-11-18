@@ -1,9 +1,9 @@
 - name: Setup Asdf V}M
-
-  - name: Add plugins {{ item.name }}
+  block:
+  - name: "Add plugins {{ item.name }}"
     shell:
-      cmd: asdf plugin add {{ item.name }} {{ item.url }}
-    loop: {{ asdf.plugins }}
+      cmd: "asdf plugin add {{ item.name }} {{ item.url }}"
+    loop: "{{ asdf.plugins }}"
 
   - name: Post Install Plugins
     shell:
@@ -15,5 +15,5 @@
 
   - name: Set global version
     shell:
-      cmd: asdf list {{ item }} | sort -r | grep -m 1 '' | xargs asdf global {{ item }}
-    loop: {{ asdf.plugins | map(attribute="name") }}
+      cmd: "asdf list {{ item }} | sort -r | grep -m 1 '' | xargs asdf global {{ item }}"
+    loop: "{{ asdf.plugins | map(attribute='name') }}"
