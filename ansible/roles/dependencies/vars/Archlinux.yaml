@@ -10,7 +10,7 @@ yay:
     - icdiff
     - slack-desktop
     - zoom
-    - gnome-terminal-transparency
+    - xfce4-transparency
     - mimic
     - datagrip
     - pycharm-professional
@@ -18,15 +18,6 @@ yay:
     - android-studio
 
 pacman:
-  config_options:
-    - ILoveCandy
-    - Color
-    - VerbosePkgLists
-    - TotalDownload
-    - CheckSpace
-  repositories:
-    - name: multilib 
-      repo: /etc/pacman.d/mirrorlist
   packages:
     - base-devel
     - zsh
