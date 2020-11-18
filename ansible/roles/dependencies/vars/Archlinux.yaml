@@ -43,3 +43,4 @@ pacman:
     - gpgme
     - arandr
     - xfce4-terminal
+    - openssh 
