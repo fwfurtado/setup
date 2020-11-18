@@ -6,6 +6,12 @@
       bare: yes
       dest: "{{ dotfiles.path }}"
 
+  - name: Install Oh-My-Zsh
+    shell: 'sh -s "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+
+  - name: Install Zinit
+    shell: 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"'
+
   - name: Update References
     shell:
       chdir: "{{ home_directory }}"
