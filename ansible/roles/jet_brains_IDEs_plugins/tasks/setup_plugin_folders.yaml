@@ -8,13 +8,13 @@
   register: ide_config
   changed_when: false
 
-- name: "Create ide config directory"
+- name: "Create {{ ide.name }} config directory"
   file:
     path: "{{ plugin_prefix }}/{{ ide.dest_suffix }}"
     state: directory
   when: not ide_config.stat.exists
 
-- name: "Installing plugin into IDE"
+- name: "Begin the installation plugins into {{ ide.name }}"
   include_tasks: install_plugins.yaml 
   loop: "{{ ide.download }}"
   loop_control:
