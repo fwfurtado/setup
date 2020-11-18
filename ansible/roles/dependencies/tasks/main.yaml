@@ -5,8 +5,8 @@
   block:
   - name: "Add the user current user to admin group"
     user:
-      name: "{{ lookup('env','USER') }}"
-      shell: "{{ shell_path }}"
+      name: "{{ user.current }}"
+      shell: "{{ user.shell }}"
       groups: "{{ admin_group }}"
       append: yes
 

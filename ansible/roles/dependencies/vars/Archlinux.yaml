@@ -1,3 +1,7 @@
+user:
+  current: "{{ lookup('env','USER') }}"
+  shell: "/usr/bin/zsh"
+
 yay:
   packages:
     - asdf-vm
