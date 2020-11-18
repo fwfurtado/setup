@@ -55,7 +55,7 @@
   - name: Make package and install Yay
     shell:
       chdir: /tmp/yay
-      cmd: makepkg -si
+      cmd: makepkg -si --noconfirm
   when: not yay_installed.stat.exists
 
 - name: Setup Yay
