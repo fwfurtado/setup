@@ -5,7 +5,7 @@ user:
 yay:
   packages:
     - asdf-vm
-    - scm_breeze
+    - scm_breeze-git
     - brave-bin
     - displaylink
     - icdiff
