@@ -6,16 +6,16 @@
 
   - name: "Add plugins"
     shell:
-      cmd: "asdf plugin add {{ item.name }} {{ item.url }}"
+      cmd: "asdf plugin add {{ item.name }} {{ item.url }} || [ $? -eq 2 ]"
     loop: "{{ asdf.plugins }}"
 
-  - name: Post Install Plugins
+  - name: Add gpg to nodejs 
     shell:
       cmd: bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
 
   - name: Install versions
     shell:
-      cmd: asdf install
+      cmd: 'asdf install'
 
   - name: Set global version
     shell:
