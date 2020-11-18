@@ -16,6 +16,7 @@
   - name: Install and set global versions
     shell:
       cmd: |
+        source /opt/asdf-vm/asdf.sh
         asdf install {{ item }}
         asdf list {{ item }} | sort -r | grep -m 1 "" | xargs asdf global {{ item }}
     loop: "{{ asdf.plugins | map(attribute='name') }}"
