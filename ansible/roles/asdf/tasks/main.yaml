@@ -15,7 +15,8 @@
 
   - name: Install versions
     shell:
-      cmd: 'asdf install'
+      cmd: 'asdf install {{ item.name }}'
+    loop: "{{ asdf.plugins }}"
 
   - name: Set global version
     shell:
