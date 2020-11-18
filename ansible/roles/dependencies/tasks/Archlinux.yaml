@@ -8,21 +8,10 @@
   block:
   - name: "Add configuration Options to pacman.conf"
     become: true
-    lineinfile:
-      path: /etc/pacman.conf
-      insertafter: '^\[options\]'
-      line: "{{ item }}"
-    loop: "{{ pacman.config_options }}"
-
-  - name: "Add repository {{ item.name }}"
-    become: true
-    blockinfile:
-      path: /etc/pacman.conf
-      marker: "# Added by ansible"
-      block: |
-        [{{ item.name }}]
-        Include = {{ item.repo }}
-    with_items: "{{ pacman.repositories }}"
+    template:
+      src: templates/pacman.conf.j2
+      dest: /etc/pacman.conf 
+      mode: '0644'
 
   - name: Sync Pacman Cache and Upgrade packages
     become: true
