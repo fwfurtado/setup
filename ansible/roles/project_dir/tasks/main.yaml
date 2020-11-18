@@ -2,22 +2,22 @@
 
   - name: Check If project dir exists
     stat:
-      path: {{ projects.path }}
+      path: "{{ projects.path }}"
     register: project_dir
     changed_when: false
 
   - name: Create Project directory
     file:
-      path: {{ projects.path }}
-      owner: {{ become_user }}
-      group: {{ admin_group }}
+      path: "{{ projects.path }}"
+      owner: "{{ become_user }}"
+      group: "{{ admin_group }}"
       state: directory
     when: not project_dir.exists
 
  - name: Create Structure
   file:
-   path: {{ item }}
-   owner: {{ become_user }}
-   group: {{ admin_group }}
+   path: "{{ item }}"
+   owner: "{{ become_user }}"
+   group: "{{ admin_group }}"
    state: directory
-  loop: {{ projects.sub_dirs }}
+  loop: "{{ projects.sub_dirs }}"
