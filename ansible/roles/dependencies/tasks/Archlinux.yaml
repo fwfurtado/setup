@@ -56,5 +56,5 @@
     shell: yay -Sy
 
   - name: Install Packages
-    shell: "yay -S {{ item }} --noconfirm"
+    shell: "yay -S {{ item }} --needed --noconfirm"
     loop: "{{ yay.packages }}"
