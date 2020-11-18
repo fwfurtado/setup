@@ -1,4 +1,5 @@
 - name: Setup SSH Keys
+  block:
   - name: Generate SSH Key
     user:
       name: "{{ become_user }}"
