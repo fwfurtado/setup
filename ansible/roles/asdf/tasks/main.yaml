@@ -2,7 +2,7 @@
   block:
   - name: "Load ASDF"
     shell: 
-      cmd: "souce /opt/asdf-vm/asdf.sh"
+      cmd: "source /opt/asdf-vm/asdf.sh"
 
   - name: "Add plugins"
     shell:
