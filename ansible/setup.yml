@@ -1,6 +1,6 @@
 --- 
 - name: Setup a new machine
-  host: all
+  hosts: all
   connection: local
   var_files: 
     - vars/{{ ansible_os_family }}.yaml
