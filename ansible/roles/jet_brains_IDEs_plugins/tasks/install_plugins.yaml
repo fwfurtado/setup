@@ -10,5 +10,5 @@
 - name: "Download and extract {{ plugin.name }}"
   unarchive:
     src: "{{ plugins.url.base }}/{{ file_name.stdout }}"
-    dest: "{{ plugins.ides.{{ide}}.dest }}"
+    dest: "{{ plugin_prefix }}/{{ ide.dest_suffix }}"
     remote_src: yes
