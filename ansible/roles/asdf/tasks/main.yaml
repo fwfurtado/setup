@@ -16,6 +16,6 @@
   - name: Install and set global versions
     shell:
       cmd: |
-        asdf install "{{ item }}"
-        asdf list "{{ item }}" | sort -r | grep -m 1 "" | xargs asfd global "{{ item }}"
+        asdf install {{ item }}
+        asdf list {{ item }} | sort -r | grep -m 1 "" | xargs asdf global {{ item }}
     loop: "{{ asdf.plugins | map(attribute='name') }}"
