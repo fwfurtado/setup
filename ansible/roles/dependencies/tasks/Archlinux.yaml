@@ -21,7 +21,7 @@
       mark: "# Added by ansible"
       block: |
         "[{{ item.name }}]"
-        "Include = {{ item.mirrorlist }}"
+        "Include = {{ item.mirror_list }}"
     loop: "{{ pacman.repositories }}"
 
   - name: Sync Pacman Cache and Upgrade packages
