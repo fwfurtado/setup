@@ -47,3 +47,4 @@ pacman:
     - lsd
     - openssh 
     - unzip
+    - xdg-user-dirs
