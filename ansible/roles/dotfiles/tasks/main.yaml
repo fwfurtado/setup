@@ -1,15 +1,16 @@
 - name: Setup Dotfiles
+  block:
   - name: Download Dotfiles
     git:
       repo: https://github.com/fwfurtado/dotfiles.git
       bare: yes
-      dest: {{ dotfiles.path }}
+      dest: "{{ dotfiles.path }}"
 
   - name: Update References
     shell:
-      chdir: {{ home_directory }}
-      cmd: git --git-dir={{ dotfiles.path }} --work-tree={{ home_directory }} checkout
+      chdir: "{{ home_directory }}"
+      cmd: "git --git-dir={{ dotfiles.path }} --work-tree={{ home_directory }} checkout"
 
   - name: Reload and Apply customizations
     shell:
-      cmd: source {{ dotfiles.run_command_file }}
+      cmd: "source {{ dotfiles.run_command_file }}"
