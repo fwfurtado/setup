@@ -1,5 +1,5 @@
 user:
-  current: "{{ lookup('env','USER') }}"
+  current: "{{ current_user }}"
   shell: "/usr/bin/zsh"
 
 homebrew:

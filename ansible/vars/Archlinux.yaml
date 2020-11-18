@@ -1,2 +1,4 @@
-home_directory: "{{ ansible_env.HOME }}"
+home_directory: "{{ lookup('env', 'HOME' }}"
 admin_group: wheel
+current_user: "{{ lookup('env','USER') }}"
+

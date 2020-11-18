@@ -1,2 +1,3 @@
-home_directory: "{{ ansible_env.HOME }}"
+home_directory: "{{ lookup('env', 'HOME' }}"
+current_user: "{{ lookup('env','USER') }}"
 admin_group: staff
