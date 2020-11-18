@@ -2,7 +2,7 @@
   include_vars: "var/{{ ansible_os_family }}.yaml"
 
 - name: Setup User
-  - name: "Add the user '{{ become_user }}' to the  group '{{ admin_group }}'"
+  - name: "Add the user current user to admin group"
     user:
       name: {{ become_user }}
       shell: {{ shell_path }}
