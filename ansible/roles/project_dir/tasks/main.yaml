@@ -13,8 +13,7 @@
       group: "{{ admin_group }}"
       state: directory
     when: not project_dir.exists
-
- - name: Create Structure
+  - name: Create Structure
     file:
      path: "{{ item }}"
      owner: "{{ become_user }}"
