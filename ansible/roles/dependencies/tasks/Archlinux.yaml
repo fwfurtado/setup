@@ -7,6 +7,7 @@
 - name: "Setup Pacman"
   block:
   - name: "Add {{ item }} configuration Options to pacman.conf"
+    become: true
     lineinfile:
       path: /etc/pacman.conf
       insertafter: '^\[options\]'
@@ -14,6 +15,7 @@
     loop: "{{ pacman.config_options }}"
 
   - name: "Add repository {{ item.name }}"
+    become: true
     blockinfile:
       path: /etc/pacman.conf
       mark: "# Added by ansible"
