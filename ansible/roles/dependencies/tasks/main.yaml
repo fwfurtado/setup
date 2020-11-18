@@ -4,6 +4,7 @@
 - name: Setup User
   block:
   - name: "Add the user current user to admin group"
+    become: true
     user:
       name: "{{ user.current }}"
       shell: "{{ user.shell }}"
