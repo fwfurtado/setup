@@ -2,7 +2,7 @@
 projects:
   path:  "{{ home_directory/projects }}"
   sub_dis:
-    - "{{ projects.path/courses }}"
-    - "{{ projects.path/pocs }}"
-    - "{{ projects.path/python }}"
-    - "{{ projects.path/jvm }}"
+    - "courses"
+    - "pocs"
+    - "python"
+    - "jvm"
