@@ -15,5 +15,5 @@
   - name: Update References
     shell:
       chdir: "{{ home_directory }}"
-      cmd: "git --git-dir={{ dotfiles.path }} --work-tree={{ home_directory }} checkout"
+      cmd: "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout -f"
 
