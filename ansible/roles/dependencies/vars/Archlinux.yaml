@@ -73,7 +73,7 @@ pacman:
     - python-pywal 
     - xorg-server
     - xorg-xinit
-    - xcompmgr 
+    - picom 
     - nvidia
     - nvidia-libgl 
     - mesa
