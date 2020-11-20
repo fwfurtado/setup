@@ -16,9 +16,12 @@ yay:
     - pycharm-professional
     - intellij-idea-ultimate-edition
     - android-studio
+    - neovim-plug 
+    - polybar-git 
 
 pacman:
   packages:
+    - sudo 
     - base-devel
     - zsh
     - neovim
@@ -32,6 +35,7 @@ pacman:
     - yq
     - xsel
     - ttf-jetbrains-mono
+    - ttf-font-awesome 
     - telegram-desktop
     - subversion
     - podman
@@ -48,3 +52,25 @@ pacman:
     - openssh 
     - unzip
     - xdg-user-dirs
+    - man-db 
+    - i3-gaps
+    - slim
+    - archlinux-themes-slim 
+    - iw 
+    - iwd
+    - wap_supplicant
+    - wireless_tools 
+    - networkmanager
+    - network-manager-applet
+    - dosfstools
+    - mtools 
+    - efibootmgr 
+    - grub-efi-x86_64 
+    - nitrogen
+    - bluez
+    - bluez-utils 
+    - rofi 
+    - python-pywal 
+    - xorg-server
+    - xorg-xinit
+    - xcompmgr 
