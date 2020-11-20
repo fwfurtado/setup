@@ -74,3 +74,8 @@ pacman:
     - xorg-server
     - xorg-xinit
     - xcompmgr 
+    - nvidia
+    - nvidia-libgl 
+    - mesa
+    - bluez-utils 
+    - blueberry 
