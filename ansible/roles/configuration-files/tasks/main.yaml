@@ -8,3 +8,9 @@
       ssh_key_file: .ssh/id_rsa
       ssh_key_comment: "{{ user_email }}"
       ssh_key_type: rsa
+  - name: Add template files
+    become: true
+    template:
+      src: "{{ item.source }}"
+      dest: "{{ item.target }}"
+      mode: "{{ item.mode }}"

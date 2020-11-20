@@ -1,0 +1,13 @@
+files:
+  - source: "templates/00-keyboard.conf.j2"
+    target: "/etc/X11/xorg.conf.d/00-keyboard.conf"
+    mode: "0644"
+  - source: "templates/20-natural-scrolling-mouse.conf.j2"
+    target: "/etc/X11/xorg.conf.d/20-natural-scrolling-mouse.conf"
+    mode: "0644"
+  - source: "templates/20-natural-scrolling-touchpad.conf.j2"
+    target: "/etc/X11/xorg.conf.d/20-natural-scrolling-toucpad.conf"
+    mode: "0644"
+  - source: "templates/environment.j2"
+    target: "/etc/environment"
+    mode: "0644"

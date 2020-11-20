@@ -10,4 +10,4 @@
     - role: dotfiles
     - role: asdf
     - role: jet_brains_IDEs_plugins
-    - role: ssh_config
+    - role: configuration-files
