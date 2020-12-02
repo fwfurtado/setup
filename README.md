@@ -4,3 +4,4 @@
 ## Dependencies
 - ansible
 - git 
+- sudo
